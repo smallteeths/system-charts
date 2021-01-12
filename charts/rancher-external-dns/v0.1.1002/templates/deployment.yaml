@@ -153,7 +153,6 @@ spec:
             value: {{ .Values.f5bigip.f5_bigip_device_ip }}
           - name: F5BIGIP_DEVICE_NAME
             value: {{ .Values.f5bigip.f5_bigip_device_name }}
-        {{- end }}
         {{- if eq .Values.provider "rdns" }}
           - name: ETCD_URLS
             value: {{ .Values.rdns.etcd_urls }}
