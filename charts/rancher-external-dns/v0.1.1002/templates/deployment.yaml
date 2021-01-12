@@ -137,38 +137,22 @@ spec:
           {{- end }}
           env:
         {{- if eq .Values.provider "f5bigip" }}
-        {{- if .Values.f5bigip.f5_bigip_host }}
           - name: F5BIGIP_HOST
             value: {{ .Values.f5bigip.f5_bigip_host }}
-        {{- end }}
-        {{- if .Values.f5bigip.f5_bigip_port }}
           - name: F5BIGIP_PORT
             value: {{ .Values.f5bigip.f5_bigip_port }}
-        {{- end }}
-        {{- if .Values.f5bigip.f5_bigip_user }}
           - name: F5BIGIP_USER
             value: {{ .Values.f5bigip.f5_bigip_user }}
-        {{- end }}
-        {{- if .Values.f5bigip.f5_bigip_passwd }}
           - name: F5BIGIP_PASSWD
             value: {{ .Values.f5bigip.f5_bigip_passwd }}
-        {{- end }}
-        {{- if .Values.f5bigip.f5_bigip_datacenter_name }}
           - name: F5BIGIP_DATACENTER_NAME
             value: {{ .Values.f5bigip.f5_bigip_datacenter_name }}
-        {{- end }}
-        {{- if .Values.f5bigip.f5_bigip_server_name }}
           - name: F5BIGIP_SERVER_NAME
             value: {{ .Values.f5bigip.f5_bigip_server_name }}
-        {{- end }}
-        {{- if .Values.f5bigip.f5_bigip_device_ip }}
           - name: F5BIGIP_DEVICE_IP
             value: {{ .Values.f5bigip.f5_bigip_device_ip }}
-        {{- end }}
-        {{- if .Values.f5bigip.f5_bigip_device_name }}
           - name: F5BIGIP_DEVICE_NAME
             value: {{ .Values.f5bigip.f5_bigip_device_name }}
-        {{- end }}
         {{- end }}
         {{- if eq .Values.provider "rdns" }}
           - name: ETCD_URLS
