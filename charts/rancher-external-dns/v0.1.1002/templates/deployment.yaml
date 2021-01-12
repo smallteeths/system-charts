@@ -140,7 +140,7 @@ spec:
           - name: F5BIGIP_HOST
             value: {{ .Values.f5bigip.f5_bigip_host }}
           - name: F5BIGIP_PORT
-            value: {{ .Values.f5bigip.f5_bigip_port }}
+            value: {{ quote .Values.f5bigip.f5_bigip_port }}
           - name: F5BIGIP_USER
             value: {{ .Values.f5bigip.f5_bigip_user }}
           - name: F5BIGIP_PASSWD
@@ -153,6 +153,7 @@ spec:
             value: {{ .Values.f5bigip.f5_bigip_device_ip }}
           - name: F5BIGIP_DEVICE_NAME
             value: {{ .Values.f5bigip.f5_bigip_device_name }}
+        {{- end }}
         {{- if eq .Values.provider "rdns" }}
           - name: ETCD_URLS
             value: {{ .Values.rdns.etcd_urls }}
