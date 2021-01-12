@@ -136,39 +136,10 @@ spec:
             readOnly: true
           {{- end }}
           env:
-        {{- if eq .Values.provider "rdns" }}
-          - name: ETCD_URLS
-            value: {{ .Values.rdns.etcd_urls }}
-          - name: RDNS_ROOT_DOMAIN
-            value: {{ .Values.rdns.rdns_root_domain }}
-        {{- if .Values.rdns.etcd_ca_file }}
-          - name: ETCD_CA_FILE
-            value: {{ .Values.rdns.etcd_ca_file }}
-        {{- end }}
-        {{- if .Values.rdns.etcd_cert_file }}
-          - name: ETCD_CERT_FILE
-            value: {{ .Values.rdns.etcd_cert_file }}
-        {{- end }}
-        {{- if .Values.rdns.etcd_key_file }}
-          - name: ETCD_KEY_FILE
-            value: {{ .Values.rdns.etcd_key_file }}
-        {{- end }}
-        {{- if .Values.rdns.etcd_tls_server_name }}
-          - name: ETCD_TLS_SERVER_NAME
-            value: {{ .Values.rdns.etcd_tls_server_name }}
-        {{- end }}
-        {{- if .Values.rdns.etcd_tls_insecure }}
-          - name: ETCD_TLS_INSECURE
-            value: {{ .Values.rdns.etcd_tls_insecure }}
-        {{- end }}
-        {{- if or .Values.google.serviceAccountSecret .Values.google.serviceAccountKey }}
-          - name: GOOGLE_APPLICATION_CREDENTIALS
-            value: /etc/secrets/service-account/credentials.json
-        {{- end }}
         {{- if eq .Values.provider "f5bigip" }}
-        {{- if .Values.f5bigip.f5_bigip_url }}
+        {{- if .Values.f5bigip.f5_bigip_host }}
           - name: F5BIGIP_HOST
-            value: {{ .Values.f5bigip.f5_bigip_url }}
+            value: {{ .Values.f5bigip.f5_bigip_host }}
         {{- end }}
         {{- if .Values.f5bigip.f5_bigip_port }}
           - name: F5BIGIP_PORT
@@ -198,6 +169,34 @@ spec:
           - name: F5BIGIP_DEVICE_NAME
             value: {{ .Values.f5bigip.f5_bigip_device_name }}
         {{- end }}
+        {{- if eq .Values.provider "rdns" }}
+          - name: ETCD_URLS
+            value: {{ .Values.rdns.etcd_urls }}
+          - name: RDNS_ROOT_DOMAIN
+            value: {{ .Values.rdns.rdns_root_domain }}
+        {{- if .Values.rdns.etcd_ca_file }}
+          - name: ETCD_CA_FILE
+            value: {{ .Values.rdns.etcd_ca_file }}
+        {{- end }}
+        {{- if .Values.rdns.etcd_cert_file }}
+          - name: ETCD_CERT_FILE
+            value: {{ .Values.rdns.etcd_cert_file }}
+        {{- end }}
+        {{- if .Values.rdns.etcd_key_file }}
+          - name: ETCD_KEY_FILE
+            value: {{ .Values.rdns.etcd_key_file }}
+        {{- end }}
+        {{- if .Values.rdns.etcd_tls_server_name }}
+          - name: ETCD_TLS_SERVER_NAME
+            value: {{ .Values.rdns.etcd_tls_server_name }}
+        {{- end }}
+        {{- if .Values.rdns.etcd_tls_insecure }}
+          - name: ETCD_TLS_INSECURE
+            value: {{ .Values.rdns.etcd_tls_insecure }}
+        {{- end }}
+        {{- if or .Values.google.serviceAccountSecret .Values.google.serviceAccountKey }}
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            value: /etc/secrets/service-account/credentials.json
         {{- end }}
         {{- if or (eq .Values.provider "aws") (eq .Values.provider "aws-sd") }}
         {{- if .Values.aws.region }}
