@@ -1,7 +1,7 @@
 ## Details about the image to be pulled.
 image:
-  repository: rancher/kubernetes-external-dns
-  tag: v0.7.3
+  repository: wangsiye/external-dns
+  tag: 0.04
   pullSecrets: []
   pullPolicy: IfNotPresent
 
@@ -89,6 +89,19 @@ rdns:
   etcd_key_file: ""	
   etcd_tls_server_name: ""	
   etcd_tls_insecure: ""
+
+# Rancher bigip keys to inject as environments	
+f5bigip:	
+  # Required keys:	
+  f5_bigip_host: ""	
+  f5_bigip_port: "8443"
+  f5_bigip_user: ""
+  f5_bigip_passwd: ""
+  f5_bigip_datacenter_name: ""
+  f5_bigip_server_name: "rancher"
+  f5_bigip_device_ip: ""
+  f5_bigip_device_name: "local.bigip.com"
+  
 
 ## Limit possible target zones by domain suffixes (optional)
 domainFilters: []
