@@ -150,8 +150,7 @@ spec:
           - name: F5BIGIP_SERVER_NAME
             value: {{ .Values.f5bigip.f5_bigip_server_name }}
           - name: F5BIGIP_DEVICE_IPS
-            value: |
-            {{ .Values.f5bigip.f5_bigip_device_ips }}
+            value: {{ .Values.f5bigip.f5_bigip_device_ips | toJson }}
         {{- end }}
         {{- if eq .Values.provider "rdns" }}
           - name: ETCD_URLS
