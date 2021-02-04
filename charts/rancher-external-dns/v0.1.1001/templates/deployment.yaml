@@ -149,10 +149,9 @@ spec:
             value: {{ .Values.f5bigip.f5_bigip_datacenter_name }}
           - name: F5BIGIP_SERVER_NAME
             value: {{ .Values.f5bigip.f5_bigip_server_name }}
-          - name: F5BIGIP_DEVICE_IP
-            value: {{ .Values.f5bigip.f5_bigip_device_ip }}
-          - name: F5BIGIP_DEVICE_NAME
-            value: {{ .Values.f5bigip.f5_bigip_device_name }}
+          - name: F5BIGIP_DEVICE_IPS
+            value: |
+            {{ .Values.f5bigip.f5_bigip_device_ips }}
         {{- end }}
         {{- if eq .Values.provider "rdns" }}
           - name: ETCD_URLS

@@ -1,7 +1,7 @@
 ## Details about the image to be pulled.
 image:
   repository: wangsiye/external-dns
-  tag: 0.04
+  tag: 0.05
   pullSecrets: []
   pullPolicy: IfNotPresent
 
@@ -99,9 +99,7 @@ f5bigip:
   f5_bigip_passwd: ""
   f5_bigip_datacenter_name: ""
   f5_bigip_server_name: "rancher"
-  f5_bigip_device_ip: ""
-  f5_bigip_device_name: "local.bigip.com"
-  
+  f5_bigip_device_ips: ""
 
 ## Limit possible target zones by domain suffixes (optional)
 domainFilters: []
