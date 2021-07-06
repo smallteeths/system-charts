@@ -94,7 +94,7 @@ rdns:
 f5bigip:	
   # Required keys:	
   f5_bigip_host: ""	
-  f5_bigip_port: "8443"
+  f5_bigip_port: "8444"
   f5_bigip_user: ""
   f5_bigip_passwd: ""
   f5_bigip_datacenter_name: ""
